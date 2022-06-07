@@ -17,46 +17,23 @@ public class Exercícios {
     Void = O método em questão não tem retorno
     */
     public static void main(String[] args){
-        int var1 = 27;
-        int var2 = 30;
         
-        StringBuilder resultadoFinal = new StringBuilder();
+       Aluno aluno1 = new Aluno();
+       aluno1.idade=36;
+       aluno1.nome="Bruno";
+       
+       Aluno aluno2 = new Aluno();
+       aluno2.idade=23;
+       aluno2.nome="Yuri";
+       
+        System.out.println("Aluno1 = "+aluno1.imprimir);
+        System.out.println("Aluno2 = "+aluno2.imprimir);
         
-        resultadoFinal = imprimirExemplos(var1, var2);
         
-        System.out.println(resultadoFinal.toString());
-        
+       
     } 
     
-    public static StringBuilder imprimirExemplos(int v1, int v2){
-        StringBuilder resultadoFinal = new StringBuilder();
-        resultadoFinal.append("var1 = ");
-        resultadoFinal.append(v1);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var2 = ");
-        resultadoFinal.append(v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 == var2 -> ");
-        resultadoFinal.append(v1 == v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 != var2 -> ");
-        resultadoFinal.append(v1 != v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 < var2 -> ");
-        resultadoFinal.append(v1 < v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 > var2 -> ");
-        resultadoFinal.append(v1 > v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 <= var2 -> ");
-        resultadoFinal.append(v1 <= v2);
-        resultadoFinal.append("\n");
-        resultadoFinal.append("var1 >= var2 -> ");
-        resultadoFinal.append(v1 >= v2);
-        resultadoFinal.append("\n");
-        
-        return resultadoFinal;
-    }
+    
         
     
 }
