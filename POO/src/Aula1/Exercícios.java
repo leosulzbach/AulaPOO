@@ -26,8 +26,11 @@ public class Exercícios {
        aluno2.idade=23;
        aluno2.nome="Yuri";
        
-        System.out.println("Aluno1 = "+aluno1.imprimir);
-        System.out.println("Aluno2 = "+aluno2.imprimir);
+      aluno1.imprimir();
+      aluno2.imprimir();
+      
+      aluno2.fazAniversario();
+      aluno2.imprimir();
         
         
        

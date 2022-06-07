@@ -13,8 +13,10 @@ public class Aluno {
     public int idade;
     
     public void fazAniversario(){
-    idade = idade++;     
+    idade++;     
     }
-    public String imprimir = (idade+" "+nome);
+    public void imprimir(){
+        System.out.println("O aluno "+nome+" tem "+idade+" anos");
+    }
 }
 
