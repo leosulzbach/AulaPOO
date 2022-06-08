@@ -11,6 +11,8 @@ package Aula1;
 public class Aluno {
     public String nome;
     public int idade;
+    public double altura;
+    public String dataNascimento;
     
     public void fazAniversario(){
     idade++;     
