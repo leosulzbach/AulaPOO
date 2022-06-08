@@ -19,19 +19,16 @@ public class Exercícios {
     public static void main(String[] args){
         
        Aluno aluno1 = new Aluno();
-       aluno1.idade=36;
-       aluno1.nome="Bruno";
+       aluno1.setNome("Leo");
+       aluno1.setIdade(19);
+       aluno1.setSexo('M');
+       aluno1.setAltura(1.73);
        
-       Aluno aluno2 = new Aluno();
-       aluno2.idade=23;
-       aluno2.nome="Yuri";
+       
        
       aluno1.imprimir();
-      aluno2.imprimir();
       
-      aluno2.fazAniversario();
-      aluno2.imprimir();
-        
+     
         
        
     } 
