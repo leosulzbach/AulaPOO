@@ -4,6 +4,8 @@
  */
 package Aula1;
 
+import modelos.Aluno;
+
 /**
  *
  * @author Windows 10
