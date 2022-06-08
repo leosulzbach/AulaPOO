@@ -11,17 +11,16 @@ package modelos;
  */
 public class Carro {
     
-    private String numero_chassi;
+    
+    private Modelo modelo;
     private String cor;
-    private String marca;
-    private String modelo;
+    private String numero_chassi;
     private int ano_modelo;
     private int ano_fabricacao;
     
     
-    
-    public Carro(String marca, String modelo, String cor, String numero_chassi, int ano_modelo, int ano_fabricacao){
-        this.marca = marca;
+     public Carro( Modelo modelo, String cor, String numero_chassi, int ano_modelo, int ano_fabricacao){
+        
         this.modelo = modelo;
         this.cor = cor;
         this.numero_chassi = numero_chassi;
@@ -29,9 +28,11 @@ public class Carro {
         this.ano_fabricacao = ano_fabricacao;
     }
     
+    
     public Carro(){
         
     }
+    
 
     public String getNumero_chassi() {
         return numero_chassi;
@@ -49,19 +50,12 @@ public class Carro {
         this.cor = cor;
     }
 
-    public String getMarca() {
-        return marca;
-    }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
+    public Modelo getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
 
@@ -86,12 +80,7 @@ public class Carro {
         StringBuilder retorno = new StringBuilder();
         retorno.append("--------------------");
         retorno.append("\n");
-        retorno.append("Marca: ");
-        retorno.append(marca);
-        retorno.append("\n");
-        retorno.append("Modelo: ");
         retorno.append(modelo);
-        retorno.append("\n");
         retorno.append("Ano: "); 
         retorno.append(ano_fabricacao);
         retorno.append("\n");
