@@ -14,12 +14,14 @@ public class ContaBanco {
     private String conta;
     private String titular;
     private double saldo;
+    private double chequeEspecial;
 
-    public ContaBanco(String agencia, String conta, String titular, double saldo) {
+    public ContaBanco(String agencia, String conta, String titular, double saldo, double chequeEspecial) {
         this.agencia = agencia;
         this.conta = conta;
         this.titular = titular;
         this.saldo = saldo;
+        this.chequeEspecial = chequeEspecial;
     }
     
     public ContaBanco(){
@@ -57,13 +59,36 @@ public class ContaBanco {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    public double getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(double chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
     
-    public void saque (double saque){
+    
+    
+    public Boolean saque (double saque){
         this.saldo = saldo - saque;
+        if (chequeEspecial+saque<=saldo){
+            return true;
+        } else {
+            this.saldo = saldo + saque;
+            return false;
+        }
+        
     }
     
     public void deposito (double deposito){
         this.saldo = saldo + deposito;
+    }
+    
+    public void transferencia(ContaBanco conta,double valor){
+        if (saque(valor)) {
+             conta.deposito(valor);
+        }
     }
 
     @Override
