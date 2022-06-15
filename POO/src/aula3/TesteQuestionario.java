@@ -7,7 +7,6 @@ import modelos.Questionario;
 public class TesteQuestionario {
     public static void main(String[] args) {
         
-        
         Questionario[] vetorQuestionario = new Questionario[3];
         
         Questionario questao1 = new Questionario();
@@ -72,11 +71,7 @@ public class TesteQuestionario {
         }
             a=0;
         }
-        
-      
-       
-        
         System.out.println("O total de respostas corretas foi: "+acerto);
-        System.out.println("O total de respostas corretas foi: "+erro);
+        System.out.println("O total de respostas erradas foi: "+erro);
     }
 }
