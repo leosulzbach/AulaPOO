@@ -10,4 +10,27 @@ package modelos;
  */
 public class Soma1 {
     
+    private String nome;
+
+    public Soma1(String nome) {
+        this.nome = nome;
+    }
+    
+    public Soma1(){
+        
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome+"1";
+    }
+    
+    
+    
+    
+    
+            
 }

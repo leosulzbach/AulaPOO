@@ -25,6 +25,20 @@ public class TesteContas {
         
         objConta.saque(Entrada.leiaDouble("Valor a ser sacado"));
         System.out.println(objConta.toString());
+        
+        
+        ContaBanco objConta2 = new ContaBanco(
+                Entrada.leiaString("Digite o numero da agência: "),
+                Entrada.leiaString("Digite o numero da conta: "),
+                Entrada.leiaString("Digite o nome do titular: "),
+                Entrada.leiaDouble("Digite o saldo da conta: "));
+        System.out.println(objConta2.toString());
+        
+        double transferencia = Entrada.leiaDouble("Valor a ser transferido  1>>>2");
+        objConta.saque(transferencia);
+        objConta2.deposito(transferencia);
+        System.out.println(objConta.toString());
+        System.out.println(objConta2.toString());
         System.exit(0);
     }
 }
