@@ -40,13 +40,14 @@ public class TestePix {
         if (objContaOrigem != null && objContaDestino != null) {
             double valorPix = Entrada.leiaDouble("Valor a ser transferido: ");
             objContaOrigem.transferirPix(objContaDestino, valorPix);
+            System.out.println(objContaOrigem.toString()); 
+            System.out.println(objContaDestino.toString()); 
         }else{
             System.out.println("informações inválidas");
         }
         
         
-        System.out.println(objContaOrigem); 
-        System.out.println(objContaDestino); 
+        
         
         System.exit(0);
         
