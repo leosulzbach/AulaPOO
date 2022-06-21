@@ -12,9 +12,9 @@ import modelos.Entrada;
  */
 public class TestePix {
     
+    static ContaBanco[] contas = new ContaBanco[3];
+    
     public static void main(String[] args) {
-        
-        ContaBanco[] contas = new ContaBanco[3];
         
         ContaBanco objConta1 = new ContaBanco("111", "123", "Pedro", 1000, 200, "511234");
         ContaBanco objConta2 = new ContaBanco("222", "444", "Jorge", 400, 200, "aaa@aaa.br");
@@ -24,27 +24,34 @@ public class TestePix {
         contas[1] = objConta2;
         contas[2] = objConta3;
         
-        
         System.out.println(objConta1); 
         System.out.println(objConta2); 
         System.out.println(objConta3);
         
-        String contaOrigem = "123";
-        ContaBanco objContaOrigem = localizarContaOrigem(contas,contaOrigem);
-        
-        String contaDestino = "19";
-        ContaBanco objContaDestino = localizarContaDestino(contas , contaDestino);
+        String contaOrigem = Entrada.leiaString("Informe a conta de origem: ");
+        ContaBanco objContaOrigem = localizarContaOrigem(contaOrigem);
         
         
-        objContaOrigem.transferirPix(objContaDestino, 100);
+        String contaDestino = Entrada.leiaString("Digite o pix destino: ");
+        ContaBanco objContaDestino = localizarContaDestino(contaDestino);
         
-        System.out.println(objConta1); 
-        System.out.println(objConta2); 
-        System.out.println(objConta3);
         
+        
+        if (objContaOrigem != null && objContaDestino != null) {
+            double valorPix = Entrada.leiaDouble("Valor a ser transferido: ");
+            objContaOrigem.transferirPix(objContaDestino, valorPix);
+        }else{
+            System.out.println("informações inválidas");
+        }
+        
+        
+        System.out.println(objContaOrigem); 
+        System.out.println(objContaDestino); 
+        
+        System.exit(0);
         
     }
-    private static ContaBanco localizarContaOrigem(ContaBanco[] contas , String conta){
+    private static ContaBanco localizarContaOrigem(String conta){
         for (int i = 0; i < contas.length; i++) {
             if (contas[i].getConta().equals(conta)) {
                 return contas[i];
@@ -53,7 +60,7 @@ public class TestePix {
         return null;
     }
     
-    private static ContaBanco localizarContaDestino(ContaBanco[] contas, String pix){
+    private static ContaBanco localizarContaDestino(String pix){
         for (int i = 0; i < contas.length; i++) {
             if (contas[i].getChavePix().equals(pix)) {
                 return contas[i];

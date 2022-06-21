@@ -58,7 +58,7 @@ public class ContaBanco{
         boolean realizado = saque(valorTransferencia, false);
         if(realizado){
             contaRecebimento.deposito(valorTransferencia, false);
-            System.out.println("Pix para conta " + contaRecebimento.titular + " realizado!");
+            System.out.println("Pix para " + contaRecebimento.titular + " realizado!");
         }
     }
     
