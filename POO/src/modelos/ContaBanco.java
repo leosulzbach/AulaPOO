@@ -11,17 +11,19 @@ public class ContaBanco{
     private String titular;
     private double saldo;
     private double chequeEspecial;
+    private String chavePix;
 
     public ContaBanco (){
         
     }
     
-    public ContaBanco(String agencia, String conta, String titular, double saldo, double chequeEspecial) {
+    public ContaBanco(String agencia, String conta, String titular, double saldo, double chequeEspecial, String chavePix) {
         this.agencia = agencia;
         this.conta = conta;
         this.titular = titular;
         this.saldo = saldo;
         this.chequeEspecial = chequeEspecial;
+        this.chavePix = chavePix;
     }
     
     public boolean saque(double valorSaque, boolean imprime){
@@ -51,6 +53,15 @@ public class ContaBanco{
             System.out.println("Transferência para conta " + contaRecebimento.titular + " realizada!");
         }
     }
+    
+    public void transferirPix(ContaBanco contaRecebimento, double valorTransferencia){
+        boolean realizado = saque(valorTransferencia, false);
+        if(realizado){
+            contaRecebimento.deposito(valorTransferencia, false);
+            System.out.println("Pix para conta " + contaRecebimento.titular + " realizado!");
+        }
+    }
+    
 
     public String getAgencia() {
         return agencia;
@@ -91,6 +102,15 @@ public class ContaBanco{
     public void setChequeEspecial(double chequeEspecial) {
         this.chequeEspecial = chequeEspecial;
     }
+
+    public String getChavePix() {
+        return chavePix;
+    }
+
+    public void setChavePix(String chavePix) {
+        this.chavePix = chavePix;
+    }
+    
 
     @Override
     public String toString() {
