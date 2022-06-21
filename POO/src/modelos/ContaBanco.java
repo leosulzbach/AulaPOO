@@ -1,31 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelos;
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
  */
-public class ContaBanco {
+public class ContaBanco{
     
     private String agencia;
     private String conta;
     private String titular;
     private double saldo;
-    private double chequeEspecial;
 
-    public ContaBanco(String agencia, String conta, String titular, double saldo, double chequeEspecial) {
+    public ContaBanco(String agencia, String conta, String titular, double saldo) {
         this.agencia = agencia;
         this.conta = conta;
         this.titular = titular;
         this.saldo = saldo;
-        this.chequeEspecial = chequeEspecial;
     }
     
-    public ContaBanco(){
-        
+    public boolean saque(double valorSaque, boolean imprime){
+        if(this.saldo >= valorSaque){
+            this.saldo -= valorSaque;
+            if(imprime){
+                System.out.println("Saque efetuado no valor de R$ " + valorSaque);
+            }
+            return true;
+        }else{
+            System.out.println("Saldo insuficiente, saque não autorizado");
+            return false;
+        }
+    }
+    
+    public void deposito(double valorDeposito, boolean imprime){
+        this.saldo += valorDeposito;
+        if(imprime){
+            System.out.println("Depósito efetuado no valor de R$ " + valorDeposito);
+        }
+    }
+    
+    public void transferir(ContaBanco contaRecebimento, double valorTransferencia){
+        boolean realizado = saque(valorTransferencia, false);
+        if(realizado){
+            contaRecebimento.deposito(valorTransferencia, false);
+            System.out.println("Transferência para conta " + contaRecebimento.titular + " realizada!");
+        }
     }
 
     public String getAgencia() {
@@ -60,42 +78,9 @@ public class ContaBanco {
         this.saldo = saldo;
     }
 
-    public double getChequeEspecial() {
-        return chequeEspecial;
-    }
-
-    public void setChequeEspecial(double chequeEspecial) {
-        this.chequeEspecial = chequeEspecial;
-    }
-    
-    
-    
-    public Boolean saque (double saque){
-        this.saldo = saldo - saque;
-        if (chequeEspecial+saque<=saldo){
-            return true;
-        } else {
-            this.saldo = saldo + saque;
-            return false;
-        }
-        
-    }
-    
-    public void deposito (double deposito){
-        this.saldo = saldo + deposito;
-    }
-    
-    public void transferencia(ContaBanco conta,double valor){
-        if (saque(valor)) {
-             conta.deposito(valor);
-        }
-    }
-
     @Override
     public String toString() {
-       String retorno= ("--------------------------------------\n"+"Titular: "+titular+"\n Saldo: "+saldo+"\n--------------------------------------");
-       return retorno;
+        return "----------\nConta: " + conta + "\n" + "Saldo: " + saldo + "\n----------";
     }
-    
     
 }

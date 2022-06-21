@@ -1,50 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package aula4;
 
 import modelos.ContaBanco;
-import modelos.Entrada;
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
  */
 public class TesteContas {
+    
     public static void main(String[] args) {
-       
-        ContaBanco objConta = new ContaBanco(
-                Entrada.leiaString("Digite o numero da agência: "),
-                Entrada.leiaString("Digite o numero da conta: "),
-                Entrada.leiaString("Digite o nome do titular: "),
-                Entrada.leiaDouble("Digite o saldo da conta: "),
-                Entrada.leiaDouble("Digite o cheque especial: "));
         
-        System.out.println(objConta.toString());
+        ContaBanco objConta1 = new ContaBanco("111", "123", "Pedro", 1000);
+        ContaBanco objConta2 = new ContaBanco("222", "444", "Jorge", 400);
         
-        objConta.deposito(Entrada.leiaDouble("Valor a ser depositado: "));
-        System.out.println(objConta.toString());
+        System.out.println(objConta1); //1000 reais de saldo
+        System.out.println(objConta2); //400 reais de saldo
         
-        Boolean a = false;
-        while(a != true){
-            if (objConta.saque(Entrada.leiaDouble("Valor a ser sacado"))){
-            System.out.println(objConta.toString());
-            a=true;
-        }
-        }
+        objConta1.saque(100, true);
+        System.out.println(objConta1);
+
+        objConta1.saque(1000, true);
+        System.out.println(objConta1);
+        
+        objConta1.transferir(objConta2, 500.90);
+        
+        System.out.println(objConta1);        
+        System.out.println(objConta2);
+
         
         
-        ContaBanco objConta2 = new ContaBanco(
-                Entrada.leiaString("Digite o numero da agência: "),
-                Entrada.leiaString("Digite o numero da conta: "),
-                Entrada.leiaString("Digite o nome do titular: "),
-                Entrada.leiaDouble("Digite o saldo da conta: "),
-                Entrada.leiaDouble("Digite o cheque especial: "));
-        System.out.println(objConta2.toString());
         
-        double transferencia = Entrada.leiaDouble("Valor a ser transferido  1>>>2");
-        objConta.transferencia(objConta2, transferencia);
-        System.exit(0);
     }
+    
 }
