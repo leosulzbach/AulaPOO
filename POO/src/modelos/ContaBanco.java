@@ -1,5 +1,5 @@
 package modelos;
-
+import aula6.TelaBanco;
 /**
  *
  * @author jonasdhein
@@ -112,8 +112,11 @@ public class ContaBanco{
     }
     
     public String textoCombo(){
-        return "Conta "+ this.conta + " / Titular " + this.titular;
+        return this.conta;
     }
+    
+    
+    
     @Override
     public String toString() {
         return "----------------------------\nConta: " + conta + "\n" + "Saldo: " + saldo + "\n----------------------------";
