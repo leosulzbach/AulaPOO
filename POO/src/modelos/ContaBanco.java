@@ -111,10 +111,12 @@ public class ContaBanco{
         this.chavePix = chavePix;
     }
     
-
+    public String textoCombo(){
+        return "Conta "+ this.conta + " / Titular " + this.titular;
+    }
     @Override
     public String toString() {
-        return "----------\nConta: " + conta + "\n" + "Saldo: " + saldo + "\n----------";
+        return "----------------------------\nConta: " + conta + "\n" + "Saldo: " + saldo + "\n----------------------------";
     }
     
 }
