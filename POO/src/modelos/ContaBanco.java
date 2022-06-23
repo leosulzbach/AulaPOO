@@ -119,7 +119,7 @@ public class ContaBanco{
     
     @Override
     public String toString() {
-        return "----------------------------\nConta: " + conta + "\n" + "Saldo: " + saldo + "\n----------------------------";
+        return this.conta;
     }
     
 }
