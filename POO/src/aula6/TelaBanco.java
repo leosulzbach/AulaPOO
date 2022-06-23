@@ -201,18 +201,17 @@ public class TelaBanco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRecuperarContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecuperarContaActionPerformed
-       /* if (contas[0] != null) {
+
+        if (cmbContas.getItemAt(0) != null) {
+            ContaBanco objContaRecuperacao = (ContaBanco) cmbContas.getSelectedItem();
+            lblTitularContaBanco.setText(objContaRecuperacao.getTitular());
+            
+        /* if (contas[0] != null) {
         String contaCombo = cmbContas.getSelectedItem().toString();
         ContaBanco conta = localizarContaOrigem(contaCombo);
         txtContas.setText(conta.toString());
         lblTitularContaBanco.setText(conta.getTitular());*/
-        if (cmbContas.getItemAt(0) != null) {
-            ContaBanco objContaRecuperacao = (ContaBanco) cmbContas.getSelectedItem();
-            lblTitularContaBanco.setText(objContaRecuperacao.getTitular());
         }
-       
-        
-       
     }//GEN-LAST:event_btnRecuperarContaActionPerformed
     
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
@@ -227,23 +226,22 @@ public class TelaBanco extends javax.swing.JFrame {
                 );
              
              
-             model.addElement(objConta);
-             cmbContas.setModel(model);
+                model.addElement(objConta);
+                cmbContas.setModel(model);
              
-             
-        /*txtContas.setText(objConta.toString());
-        cmbContas.addItem(objConta.textoCombo());
-        lblTitularContaBanco.setText(objConta.getTitular());
+                lblTitularContaBanco.setText(objConta.getTitular());
+                txtAgencia.setText("");
+                txtConta.setText("");
+                txtTitular.setText("");
+                txtSaldo.setText("");
+                txtChequeEspecial.setText("");
+                txtChavePix.setText("");
         
+        
+        /* txtContas.setText(objConta.toString());
+        cmbContas.addItem(objConta.textoCombo());
         contas[total] = objConta;
-        total++;
-        */
-        txtAgencia.setText("");
-        txtConta.setText("");
-        txtTitular.setText("");
-        txtSaldo.setText("");
-        txtChequeEspecial.setText("");
-        txtChavePix.setText("");
+        total++; */
         
        
     }//GEN-LAST:event_btnCadastrarActionPerformed
