@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package aula6;
+import Ferramentas.Globais;
 import modelos.Questionario;
 /**
  *
@@ -10,6 +11,7 @@ import modelos.Questionario;
  */
 public class TelaQuestionario extends javax.swing.JFrame {
     int cont = 0;
+    int aux = 0;
     int acertos = 0;
     int erros = 0;
     int total = 0;
@@ -29,7 +31,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
         questao1.setRespostaA("50");
         questao1.setRespostaB("30");
         questao1.setRespostaC("25");
-        questao1.setRespostaCorreta("B");
+        questao1.setRespostaCorreta(questao1.getRespostaB());
         
         vetorQuestionario[0]=questao1;
         
@@ -39,7 +41,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
         questao2.setRespostaA("Alemanha");
         questao2.setRespostaB("Bélgica");
         questao2.setRespostaC("França");
-        questao2.setRespostaCorreta("C");
+        questao2.setRespostaCorreta(questao2.getRespostaC());
         
         vetorQuestionario[1]=questao2;
         
@@ -49,7 +51,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
         questao3.setRespostaA("Hidrogenio");
         questao3.setRespostaB("Carbono");
         questao3.setRespostaC("Hélio");
-        questao3.setRespostaCorreta("A");
+        questao3.setRespostaCorreta(questao3.getRespostaA());
         
         vetorQuestionario[2]=questao3;
         
@@ -76,6 +78,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
         rbtResposta3 = new javax.swing.JRadioButton();
         btnAvancar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        lblMensagemErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +115,10 @@ public class TelaQuestionario extends javax.swing.JFrame {
             }
         });
 
+        lblMensagemErro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMensagemErro.setForeground(new java.awt.Color(255, 0, 0));
+        lblMensagemErro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,20 +126,24 @@ public class TelaQuestionario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rbtResposta1)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(btnVoltar)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblMensagemErro, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAvancar))
+                            .addComponent(lblQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rbtResposta2)
+                            .addComponent(rbtResposta1)
                             .addComponent(rbtResposta3))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                        .addComponent(btnAvancar))
-                    .addComponent(lblQuestao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,16 +152,21 @@ public class TelaQuestionario extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblQuestao, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(rbtResposta1)
-                .addGap(18, 18, 18)
-                .addComponent(rbtResposta2)
-                .addGap(18, 18, 18)
-                .addComponent(rbtResposta3)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAvancar)
-                    .addComponent(btnVoltar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rbtResposta1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbtResposta2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbtResposta3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAvancar)
+                            .addComponent(btnVoltar)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(lblMensagemErro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -160,57 +176,71 @@ public class TelaQuestionario extends javax.swing.JFrame {
 
     private void btnAvancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvancarActionPerformed
         if (rbtResposta1.isSelected() || rbtResposta2.isSelected() || rbtResposta3.isSelected()) {
-             cont++;
+            cont++;
        if(cont >= vetorQuestionario.length){
            cont = 2;
          }else if(cont < vetorQuestionario.length){
            fazerPergunta();
          }
-       
         if (total < 3) {
             contarAcertos();
-            System.out.println(total);
+        } 
+            
+            lblMensagemErro.setText("");
+            buttonGroup1.clearSelection();
+        } else {
+            lblMensagemErro.setText("ESCOLHA UMA ALTERNATIVA!");
         }
-        }
-       
         
     }//GEN-LAST:event_btnAvancarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         cont--;
+        aux--;
        if(cont <= -1){
            cont = 0;
        }else if(cont > -1){
                fazerPergunta();
        }
     }//GEN-LAST:event_btnVoltarActionPerformed
+    
     private void contarAcertos(){
+        System.out.println(vetorQuestionario[aux].getRespostaCorreta());
         if (rbtResposta1.isSelected()) {
-            if (vetorQuestionario[cont].getRespostaCorreta().equalsIgnoreCase(rbtResposta1.getText())) {
+            if (vetorQuestionario[aux].getRespostaCorreta().equalsIgnoreCase(rbtResposta1.getText())) {
                 acertos++;
+                Globais.exibirMensagem("ACERTOU");
             }else {
                 erros++;
+                Globais.exibirMensagem("ERROU");
             }
         }else if (rbtResposta2.isSelected()) {
-            if (vetorQuestionario[cont].getRespostaCorreta().equalsIgnoreCase(rbtResposta2.getText())) {
+            if (vetorQuestionario[aux].getRespostaCorreta().equalsIgnoreCase(rbtResposta2.getText())) {
                 acertos++;
+                Globais.exibirMensagem("ACERTOU");
             }else {
                 erros++;
+                Globais.exibirMensagem("ERROU");
             }
         }else if (rbtResposta3.isSelected()) {
-            if (vetorQuestionario[cont].getRespostaCorreta().equalsIgnoreCase(rbtResposta3.getText())) {
+            if (vetorQuestionario[aux].getRespostaCorreta().equalsIgnoreCase(rbtResposta3.getText())) {
                 acertos++;
+                Globais.exibirMensagem("ACERTOU");
             }else {
                 erros++;
+                Globais.exibirMensagem("ERROU");
             }
         }
             total = acertos+erros;
+            aux++;
     }
+    
     private void fazerPergunta(){
-           lblQuestao.setText(vetorQuestionario[cont].getPergunta());
-           rbtResposta1.setText(vetorQuestionario[cont].getRespostaA());
-           rbtResposta2.setText(vetorQuestionario[cont].getRespostaB());
-           rbtResposta3.setText(vetorQuestionario[cont].getRespostaC());
+            
+            lblQuestao.setText(vetorQuestionario[cont].getPergunta());
+            rbtResposta1.setText(vetorQuestionario[cont].getRespostaA());
+            rbtResposta2.setText(vetorQuestionario[cont].getRespostaB());
+            rbtResposta3.setText(vetorQuestionario[cont].getRespostaC());
     }
     /**
      * @param args the command line arguments
@@ -252,6 +282,7 @@ public class TelaQuestionario extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblMensagemErro;
     private javax.swing.JLabel lblQuestao;
     private javax.swing.JRadioButton rbtResposta1;
     private javax.swing.JRadioButton rbtResposta2;
