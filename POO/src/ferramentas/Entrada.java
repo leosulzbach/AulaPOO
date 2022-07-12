@@ -1,24 +1,6 @@
-package modelos;
-
+package ferramentas;
 
 import javax.swing.*;
-
-/**
- * Class Entrada - input class for input of simple input types
- * via simple dialog box.
- * eg. int, char, String, double or boolean.
- *
- * @author Bruce Quig
- * @author Michael Kolling
- * @author Eugene Ageenko
- * @author Marcelo de G. Malheiros
- *
- * @version 1.4
- * Modified (2008.02.25): replaced deprecated "show" method 
- *
- * @version 1.3
- * Modified (2003.08.12): Portuguese version, added methods without parameters.
- */
 
 public class Entrada {
     // instance variables
@@ -30,13 +12,13 @@ public class Entrada {
     static final String TRUE = "true";
     static final String FALSE = "false";
     static final String EMPTY_STRING = "";
-    
+
     /**
      *  No constructor by default.
      */
     private Entrada() {
     }
-    
+
     /**
      ** String input from the user via a simple dialog.
      ** @return String input from the user.
@@ -44,7 +26,7 @@ public class Entrada {
     public static String leiaString() {
         return leiaString("","");
     }
-    
+
     /**
      ** String input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -53,7 +35,7 @@ public class Entrada {
     public static String leiaString(String prompt) {
         return leiaString(prompt,"");
     }
-    
+
     /**
      ** String input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -63,11 +45,11 @@ public class Entrada {
     public static String leiaString(String prompt, String initialValue) {
         Object[] commentArray = {prompt, EMPTY_STRING, EMPTY_STRING};
         Object[] options = {"OK"};
-        
+
         boolean validResponse = false;
-        
+
         String result = null;
-        
+
         while (!validResponse) {
             final JOptionPane optionPane = new JOptionPane(commentArray,
                                                            JOptionPane.QUESTION_MESSAGE,
@@ -75,16 +57,16 @@ public class Entrada {
                                                            null,
                                                            options,
                                                            options[0]);
-            
+
             optionPane.setWantsInput(true);
             optionPane.setInitialSelectionValue(initialValue);  // EA: added
             JDialog dialog = optionPane.createDialog(null, STRING_TITLE);
-            
+
             dialog.pack();
             dialog.setVisible(true);
-            
+
             Object response = optionPane.getInputValue();
-            
+
             if (response != JOptionPane.UNINITIALIZED_VALUE) {
                 result = (String) response;
                 if (result != null) // EA: added for completnes
@@ -100,7 +82,7 @@ public class Entrada {
         }
         return result;
     }
-    
+
     /**
      ** returns character input from the user via a simple dialog.
      ** @return the input character
@@ -108,7 +90,7 @@ public class Entrada {
     public static char leiaChar() {
         return leiaChar("","");
     }
-    
+
     /**
      ** returns character input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -117,7 +99,7 @@ public class Entrada {
     public static char leiaChar(String prompt) {
         return leiaChar(prompt,"");
     }
-    
+
     /**
      ** returns character input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -127,7 +109,7 @@ public class Entrada {
     public static char leiaChar(String prompt, char initialValue) {
         return leiaChar(prompt,Character.toString(initialValue));
     }
-    
+
     /**
      ** returns character input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -136,14 +118,14 @@ public class Entrada {
      **/
     public static char leiaChar(String prompt, String initialValue) {
         char response = (initialValue != null && initialValue.length() > 0) ? initialValue.charAt(0) : '-'; // EA: modified
-        
+
         String result = null;
-        
+
         Object[] commentArray = {prompt, EMPTY_STRING, EMPTY_STRING};
         Object[] options = {"OK"};
-        
+
         boolean validResponse = false;
-        
+
         while (!validResponse) {
             final JOptionPane optionPane = new JOptionPane(commentArray,
                                                            JOptionPane.QUESTION_MESSAGE,
@@ -151,18 +133,18 @@ public class Entrada {
                                                            null,
                                                            options,
                                                            options[0]);
-            
+
             optionPane.setWantsInput(true);
             optionPane.setInitialSelectionValue(initialValue);  // EA: added
             JDialog dialog = optionPane.createDialog(null, CHAR_TITLE);
-            
+
             dialog.pack();
             dialog.setVisible(true);
-            
+
             result = null; // EA: added for convinience;
             // EA: why character processed in another way that integer?
             // EA: meaning that with check for uinitialized case then assignment?
-            
+
             Object input = optionPane.getInputValue();
             if (input != JOptionPane.UNINITIALIZED_VALUE) {
                 result = (String) input;
@@ -185,7 +167,7 @@ public class Entrada {
         }
         return response;
     }
-    
+
     /**
      ** boolean selection from the user via a simple dialog.
      ** @return boolean selection from the user
@@ -193,7 +175,7 @@ public class Entrada {
     public static boolean leiaBoolean() {
         return leiaBoolean("", TRUE, FALSE);
     }
-    
+
     /**
      ** boolean selection from the user via a simple dialog.
      ** @param  prompt message to appear in dialog
@@ -202,7 +184,7 @@ public class Entrada {
     public static boolean leiaBoolean(String prompt) {
         return leiaBoolean(prompt, TRUE, FALSE);
     }
-    
+
     /**
      ** boolean selection from the user via a simple dialog.
      ** @param  prompt message to appear in dialog
@@ -214,7 +196,7 @@ public class Entrada {
         Object[] commentArray = {prompt, EMPTY_STRING};
         boolean validResponse = false;
         int result = -1;
-        
+
         while (!validResponse) {
             Object[] options = {trueText, falseText};
             result = JOptionPane.showOptionDialog(null,
@@ -225,7 +207,7 @@ public class Entrada {
                                                   null, //don't use a custom Icon
                                                   options, //the titles of buttons
                                                   trueText); //the title of the default button, EA: CORRECTED from TRUE
-            
+
             // check true or false buttons pressed
             if (result == JOptionPane.YES_OPTION || result == JOptionPane.NO_OPTION) // CORRECTED from 0:1
             {
@@ -236,7 +218,7 @@ public class Entrada {
         }
         return (result == 0);
     }
-    
+
     /**
      ** returns integer input from the user via a simple dialog.
      ** @return the input integer
@@ -244,7 +226,7 @@ public class Entrada {
     public static int leiaInt() {
         return leiaInt("","");
     }
-    
+
     /**
      ** returns integer input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -253,7 +235,7 @@ public class Entrada {
     public static int leiaInt(String prompt) {
         return leiaInt(prompt,"");
     }
-    
+
     /**
      ** returns integer input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -263,7 +245,7 @@ public class Entrada {
     public static int leiaInt(String prompt, int initialValue) {
         return leiaInt(prompt,Integer.toString(initialValue));
     }
-    
+
     /**
      ** returns integer input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -273,9 +255,9 @@ public class Entrada {
     public static int leiaInt(String prompt, String initialValue) {
         Object[] commentArray = {prompt, EMPTY_STRING, EMPTY_STRING};
         Object[] options = {"OK"};
-        
+
         boolean validResponse = false;
-        
+
         int response = 0;
         while (!validResponse) {
             final JOptionPane optionPane = new JOptionPane(commentArray,
@@ -284,14 +266,14 @@ public class Entrada {
                                                            null,
                                                            options,
                                                            options[0]);
-            
+
             optionPane.setWantsInput(true);
             optionPane.setInitialSelectionValue(initialValue);  // EA: added
             JDialog dialog = optionPane.createDialog(null, INT_TITLE);
-            
+
             dialog.pack();
             dialog.setVisible(true);
-            
+
             // EA: rewritten as in leiaChar function
             // EA: added or corrected non-portable check for uninitialized value situation
             Object input = optionPane.getInputValue();
@@ -319,7 +301,7 @@ public class Entrada {
         }
         return response;
     }
-    
+
     /**
      ** returns double input from the user via a simple dialog.
      ** @return the input double
@@ -327,7 +309,7 @@ public class Entrada {
     public static double leiaDouble() {
         return leiaDouble("","");
     }
-    
+
     /**
      ** returns double input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -336,7 +318,7 @@ public class Entrada {
     public static double leiaDouble(String prompt) {
         return leiaDouble(prompt,"");
     }
-    
+
     /**
      ** returns double input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -346,7 +328,7 @@ public class Entrada {
     public static double leiaDouble(String prompt, double initialValue) {
         return leiaDouble(prompt,Double.toString(initialValue));
     }
-    
+
     /**
      ** returns double input from the user via a simple dialog.
      ** @param prompt the message string to be displayed inside dialog
@@ -356,11 +338,11 @@ public class Entrada {
     public static double leiaDouble(String prompt, String initialValue) {
         Object[] options = {"OK"};
         Object[] commentArray = {prompt, EMPTY_STRING, EMPTY_STRING};
-        
+
         boolean validResponse = false;
-        
+
         double response = 0.0;
-        
+
         while (!validResponse) {
             final JOptionPane optionPane = new JOptionPane(commentArray,
                                                            JOptionPane.QUESTION_MESSAGE,
@@ -368,14 +350,14 @@ public class Entrada {
                                                            null,
                                                            options,
                                                            options[0]);
-            
+
             optionPane.setWantsInput(true);
             optionPane.setInitialSelectionValue(initialValue);  // EA: added
             JDialog dialog = optionPane.createDialog(null, DOUBLE_TITLE);
-            
+
             dialog.pack();
             dialog.setVisible(true);
-            
+
             Object input = optionPane.getInputValue();
             if (input == JOptionPane.UNINITIALIZED_VALUE) {
                 commentArray[1] = "Precisa entrar com um valor fracion�rio"; // EA: explanatory text added

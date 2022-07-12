@@ -1,46 +1,44 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Aula2;
+package aula2;
 
 import modelos.Carro;
 import modelos.Modelo;
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
+ * 
  */
 public class ManipularObjetos {
+    
     public static void main(String[] args) {
         
-        Modelo modelo = new Modelo("Audi", "A8");
+        Modelo objModelo = new Modelo("Chevrolet", "Opala");
         
-        Carro objCarro = new Carro(modelo, "Azul", "047b5", 2020, 2019);
+        Carro objCarro1 = new Carro("123456", "Azul", "Chevrolet", 
+                objModelo, 1980,1981);
         
+        Carro objCarro2 = new Carro();
+        //objCarro2.setModelo(new Modelo("Chevrolet", "Opala"));
+        objCarro2.setModelo(objModelo);
+        objCarro2.setAno_fabricacao(1980);
+        objCarro2.setAno_modelo(1981);
         
-        Carro objCarro2 = new Carro(modelo, "Azul", "047b5", 2020, 2019);
-        //Carro objCarro2 = new Carro("Porche", "C3", "Preto", "I80j12", 2010, 2009);
-        
-        /*
-        Carro objCarro = new Carro();
-        objCarro.setMarca("fiat");
-        objCarro.setModelo("147");
-        objCarro.setAno_fabricacao(1980);
-        */
-        
-        if (objCarro.getAno_fabricacao() > objCarro2.getAno_fabricacao()) {
-            System.out.println("O carro mais novo é: "+objCarro.getModelo());
-        } else if (objCarro2.getAno_fabricacao() > objCarro.getAno_fabricacao()) {
-            System.out.println("O carro mais novo é: "+objCarro2.getModelo());
-        }else {
-            System.out.println("Os carros são do mesmo ano");
-        }
-        
-        
-        
-        System.out.println(objCarro);
-        System.out.println(objCarro2);
+        //Qual dos 3 carros é o mais novo?
+        String objRetorno = obterCarroMaisNovo(objCarro1, objCarro2);
+        System.out.println("Carro mais novo: " + objRetorno);
         
     }
+    
+    public static String obterCarroMaisNovo(Carro obj1, Carro obj2){
+        
+        if(obj1.getAno_fabricacao() > obj2.getAno_fabricacao()){
+            return obj1.toString();
+        }else if(obj1.getAno_fabricacao() == obj2.getAno_fabricacao()){
+            return "Os dois são iguais, que loucura!";
+        }else{
+            return obj2.toString();
+        }
+        
+    }
+    
 }

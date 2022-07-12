@@ -1,17 +1,16 @@
-package modelos;
+package aula3;
 
 /**
  *
  * @author jonasdhein
  */
-public class Aluno {
+public class Pessoa {
     
     private String nome;
-    private int idade;
-    private double altura; //medida em metros
+    private String sobreNome;
+    private double altura;
+    private String cidade;
     private char sexo;
-    
-    public int variavel_publica;
 
     public String getNome() {
         return nome;
@@ -21,12 +20,12 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getSobreNome() {
+        return sobreNome;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setSobreNome(String sobreNome) {
+        this.sobreNome = sobreNome;
     }
 
     public double getAltura() {
@@ -37,6 +36,14 @@ public class Aluno {
         this.altura = altura;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     public char getSexo() {
         return sexo;
     }
@@ -44,13 +51,10 @@ public class Aluno {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
-    
-    protected void fazAniversario(){
-        idade++;
-    }
-    
-    public void imprimir(){
-        System.out.println("O aluno " + nome + " tem " + idade + " anos");
+
+    @Override
+    public String toString() {
+        return nome;  
     }
     
 }

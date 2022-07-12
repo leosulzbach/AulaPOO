@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package aula6;
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
  */
 public class Tela1 extends javax.swing.JFrame {
 
@@ -32,24 +28,18 @@ public class Tela1 extends javax.swing.JFrame {
         btnSomar = new javax.swing.JButton();
         txtResultado = new javax.swing.JTextField();
         btnSubtrair = new javax.swing.JButton();
-        btnDiv = new javax.swing.JButton();
         btnMult = new javax.swing.JButton();
+        btnDividir = new javax.swing.JButton();
         cmbOperacoes = new javax.swing.JComboBox<>();
         btnCalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Calculadora");
+        lblTitulo.setText("Calculadora v 1.0");
 
-        txtNumero1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumero1ActionPerformed(evt);
-            }
-        });
-
-        btnSomar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSomar.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnSomar.setText("+");
         btnSomar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +47,7 @@ public class Tela1 extends javax.swing.JFrame {
             }
         });
 
-        btnSubtrair.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSubtrair.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnSubtrair.setText("-");
         btnSubtrair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,15 +55,7 @@ public class Tela1 extends javax.swing.JFrame {
             }
         });
 
-        btnDiv.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDiv.setText("/");
-        btnDiv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDivActionPerformed(evt);
-            }
-        });
-
-        btnMult.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMult.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         btnMult.setText("*");
         btnMult.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,11 +63,17 @@ public class Tela1 extends javax.swing.JFrame {
             }
         });
 
-        cmbOperacoes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDividir.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        btnDividir.setText("/");
+        btnDividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDividirActionPerformed(evt);
+            }
+        });
+
         cmbOperacoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/" }));
 
-        btnCalcular.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCalcular.setText("CALCULAR");
+        btnCalcular.setText("Calcular");
         btnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCalcularActionPerformed(evt);
@@ -97,65 +85,50 @@ public class Tela1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtResultado)
-                            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(btnCalcular)
-                                            .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(82, 82, 82))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(cmbOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(99, 99, 99))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnMult, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 184, Short.MAX_VALUE)))
-                .addContainerGap())
+                                        .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnMult, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnDividir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addComponent(cmbOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSomar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnMult, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSomar)
+                    .addComponent(btnSubtrair)
+                    .addComponent(btnMult)
+                    .addComponent(btnDividir)
+                    .addComponent(cmbOperacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCalcular))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtResultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,49 +136,60 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSomarActionPerformed
-        
-       calcular('+');
+        calcular('+');   
     }//GEN-LAST:event_btnSomarActionPerformed
-
-    private void txtNumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumero1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumero1ActionPerformed
 
     private void btnSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtrairActionPerformed
         calcular('-');
     }//GEN-LAST:event_btnSubtrairActionPerformed
 
-    private void btnDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivActionPerformed
-        calcular('/');
-    }//GEN-LAST:event_btnDivActionPerformed
-
     private void btnMultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultActionPerformed
         calcular('*');
     }//GEN-LAST:event_btnMultActionPerformed
 
+    private void btnDividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDividirActionPerformed
+        calcular('/');
+    }//GEN-LAST:event_btnDividirActionPerformed
+
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        calcular(cmbOperacoes.getSelectedItem().toString().charAt(0));
+        //capturando o texto selecionado na comboBox
+        String operacao = cmbOperacoes.getSelectedItem().toString();
+        
+        //calcular -> Convertendo a operacao de String para char
+        calcular(operacao.charAt(0));
+        
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void calcular(char operacao){
         
-        if (operacao == '+'){
-            int resultado = Integer.parseInt(txtNumero1.getText()) + Integer.parseInt(txtNumero2.getText());
-        txtResultado.setText(String.valueOf(resultado));
+        //o retorno dos textFields é sempre uma String
+        String numero1 = txtNumero1.getText();
+        String numero2 = txtNumero2.getText();
+        
+        //converter em Int
+        double intNumero1 = Double.parseDouble(numero1);
+        double intNumero2 = Double.parseDouble(numero2);
+
+        double resultado = 0;
+        
+        //exemplo com if else
+        if(operacao == '+'){
+             resultado = intNumero1 + intNumero2;
+        }else if(operacao == '-'){
+            resultado = intNumero1 - intNumero2;
+        }else if(operacao == '*'){
+            resultado = intNumero1 * intNumero2;
+        }else if(operacao == '/'){
+             resultado = intNumero1 / intNumero2;
         }
-        if (operacao == '-'){
-            int resultado = Integer.parseInt(txtNumero1.getText()) - Integer.parseInt(txtNumero2.getText());
-        txtResultado.setText(String.valueOf(resultado));
-        }
-        if (operacao == '*'){
-            int resultado = Integer.parseInt(txtNumero1.getText()) * Integer.parseInt(txtNumero2.getText());
-        txtResultado.setText(String.valueOf(resultado));
-        }
-        if (operacao == '/'){
-           float  resultado = Float.parseFloat(txtNumero1.getText()) / Float.parseFloat(txtNumero2.getText());
-        txtResultado.setText(String.valueOf(resultado));
-        }
+        
+        //converteu o int em String para enviar ao txtResultado
+        String strResultado = String.valueOf(resultado);
+        
+        txtResultado.setText(strResultado);
+        
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -243,7 +227,7 @@ public class Tela1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JButton btnDiv;
+    private javax.swing.JButton btnDividir;
     private javax.swing.JButton btnMult;
     private javax.swing.JButton btnSomar;
     private javax.swing.JButton btnSubtrair;

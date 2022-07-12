@@ -1,32 +1,16 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelos;
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
  */
 public class Questionario {
     
-   private String pergunta;
-   private String respostaA;
-   private String respostaB;
-   private String respostaC;
-   private String respostaCorreta;
-
-    public Questionario(String pergunta, String respostaA, String respostaB, String respostaC, String respostaCorreta) {
-        this.pergunta = pergunta;
-        this.respostaA = respostaA;
-        this.respostaB = respostaB;
-        this.respostaC = respostaC;
-        this.respostaCorreta = respostaCorreta;
-    }
-    
-    public Questionario(){
-        
-    }
+    private String pergunta;
+    private String respostaA;
+    private String respostaB;
+    private String respostaC;
+    private char respostaCorreta;
 
     public String getPergunta() {
         return pergunta;
@@ -60,12 +44,19 @@ public class Questionario {
         this.respostaC = respostaC;
     }
 
-    public String getRespostaCorreta() {
+    public char getRespostaCorreta() {
         return respostaCorreta;
     }
 
-    public void setRespostaCorreta(String respostaCorreta) {
+    public void setRespostaCorreta(char respostaCorreta) {
         this.respostaCorreta = respostaCorreta;
+    }
+
+    public String realizarPergunta(){
+        return pergunta + 
+                "\n A) " + respostaA +
+                "\n B) " + respostaB +
+                "\n C) " + respostaC;
     }
     
     

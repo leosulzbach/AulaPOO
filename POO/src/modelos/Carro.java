@@ -1,39 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelos;
-
 
 /**
  *
- * @author Windows 10
+ * @author jonasdhein
  */
 public class Carro {
     
-    
-    private Modelo modelo;
-    private String cor;
     private String numero_chassi;
+    private String cor;
+    private Modelo modelo;
     private int ano_modelo;
     private int ano_fabricacao;
-    
-    
-     public Carro( Modelo modelo, String cor, String numero_chassi, int ano_modelo, int ano_fabricacao){
-        
-        this.modelo = modelo;
-        this.cor = cor;
-        this.numero_chassi = numero_chassi;
-        this.ano_modelo = ano_modelo;
-        this.ano_fabricacao = ano_fabricacao;
-    }
-    
     
     public Carro(){
         
     }
     
-
+    public Carro(String numero_chassi, String cor, String marca, Modelo modelo, 
+            int ano_modelo, int ano_fabricacao) {
+        this.numero_chassi = numero_chassi;
+        this.cor = cor;
+        this.modelo = modelo;
+        this.ano_modelo = ano_modelo;
+        this.ano_fabricacao = ano_fabricacao;
+    }
+    
     public String getNumero_chassi() {
         return numero_chassi;
     }
@@ -49,7 +40,6 @@ public class Carro {
     public void setCor(String cor) {
         this.cor = cor;
     }
-
 
     public Modelo getModelo() {
         return modelo;
@@ -76,21 +66,26 @@ public class Carro {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder retorno = new StringBuilder();
-        retorno.append("--------------------");
+        retorno.append("-----------------\n");
+        retorno.append("Marca:");
+        retorno.append(modelo.getMarca());
         retorno.append("\n");
+        retorno.append("Modelo:");
         retorno.append(modelo);
-        retorno.append("Ano: "); 
-        retorno.append(ano_fabricacao);
         retorno.append("\n");
-        retorno.append("--------------------");
-     
+        retorno.append("Ano:");
+        retorno.append(ano_fabricacao);
+        retorno.append("/");
+        retorno.append(ano_modelo);
+        retorno.append("\n");
+        retorno.append("-----------------");
+        
         return retorno.toString();
+        
     }
-    
-    
-    
+
     
     
     

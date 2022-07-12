@@ -1,5 +1,5 @@
 package modelos;
-import aula6.TelaBanco;
+
 /**
  *
  * @author jonasdhein
@@ -12,22 +12,25 @@ public class ContaBanco{
     private double saldo;
     private double chequeEspecial;
     private String chavePix;
+    private String senha;
 
-    public ContaBanco (){
+    public ContaBanco(){
         
     }
     
-    public ContaBanco(String agencia, String conta, String titular, double saldo, double chequeEspecial, String chavePix) {
+    public ContaBanco(String agencia, String conta, String titular, double saldo, 
+            double chequeEspecial, String chavePix, String senha) {
         this.agencia = agencia;
         this.conta = conta;
         this.titular = titular;
         this.saldo = saldo;
         this.chequeEspecial = chequeEspecial;
         this.chavePix = chavePix;
+        this.senha = senha;
     }
     
     public boolean saque(double valorSaque, boolean imprime){
-        if(this.saldo+this.chequeEspecial >= valorSaque){
+        if(this.saldo >= valorSaque){
             this.saldo -= valorSaque;
             if(imprime){
                 System.out.println("Saque efetuado no valor de R$ " + valorSaque);
@@ -55,13 +58,8 @@ public class ContaBanco{
     }
     
     public void transferirPix(ContaBanco contaRecebimento, double valorTransferencia){
-        boolean realizado = saque(valorTransferencia, false);
-        if(realizado){
-            contaRecebimento.deposito(valorTransferencia, false);
-            System.out.println("Pix para " + contaRecebimento.titular + " realizado!");
-        }
+        transferir(contaRecebimento, valorTransferencia);
     }
-    
 
     public String getAgencia() {
         return agencia;
@@ -114,12 +112,18 @@ public class ContaBanco{
     public String textoCombo(){
         return this.conta;
     }
-    
-    
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     @Override
     public String toString() {
-        return this.conta;
+        return this.titular;
     }
     
 }
